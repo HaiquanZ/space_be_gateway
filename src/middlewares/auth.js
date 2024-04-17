@@ -16,7 +16,8 @@ const authorize = function (req, res, next) {
 
         return jwt.verify(token, JWT_SECRET, function (err, data) {
             if (err) throw new Error("Authorize Failed");
-            req.user = data;
+            req.body.user = data.user;
+            //console.log(req.user);
             next();
         });
     } catch (err) {
