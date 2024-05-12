@@ -4,7 +4,7 @@ const proxy = require('express-http-proxy');
 const authorize = require('./src/middlewares/auth');
 
 const app = express();
-app.use(cors());
+app.use(cors({origin: true, credentials: true}));
 app.use(express.json());
 
 app.use('/user', authorize, proxy('http://localhost:8001'))
