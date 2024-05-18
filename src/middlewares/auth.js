@@ -5,7 +5,6 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 const authorize = function (req, res, next) {
     try {
-        //console.log(req.url);
         if(req.url === "/login" || req.url === "/register" || req.url === "/forgot-password" || req.url === "/confirm-otp"){
             return next();
         }
